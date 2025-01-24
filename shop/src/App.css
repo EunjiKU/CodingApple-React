@@ -20,13 +20,13 @@
 /* 최근본상품 */
 .view-pop {
   position: fixed;
-  top: 20px;
+  top: 60px;
   right: 20px;
   display: flex;
   flex-direction: column;
   width: 300px;
   min-height: 100px;
-  max-height: 300px;
+  max-height: 90vh;
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;

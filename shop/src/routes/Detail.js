@@ -8,7 +8,7 @@ import { Context1 } from "./../App.js";
 import { useDispatch } from "react-redux";
 // import styled from 'styled-components';
 
-export default function Detail({ shoes }) {
+export default function Detail({ shoes, setWatchedItems  }) {
   // 3️⃣ Context : 저장공간 열기
   // let t = useContext(Context1);
   // console.log(`앙${t}`);
@@ -38,10 +38,13 @@ export default function Detail({ shoes }) {
     // 이미 해당 id가 존재하는 경우 먼저 제거
     viewWatchItems = viewWatchItems.filter((id) => id !== shoesItem.id);
     // id를 배열의 마지막에 추가
-    viewWatchItems.push(shoesItem.id);
+    viewWatchItems.unshift(shoesItem.id);
     // 변경된 배열을 localStorage에 저장
     localStorage.setItem("watched", JSON.stringify(viewWatchItems));
-  }, [shoesItem]);
+
+    // 업데이트
+    setWatchedItems(viewWatchItems);
+  }, [shoesItem, setWatchedItems]);
 
   useEffect(() => {
     let b = setTimeout(() => {

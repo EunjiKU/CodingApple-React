@@ -7,6 +7,7 @@ import Cart from "./routes/Cart.js";
 import { createContext, useState, useEffect } from "react";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import axios from "axios";
+import { useQuery } from "react-query";
 
 // 1️⃣ Context : 저장공간 만들기
 export let Context1 = createContext();
@@ -20,6 +21,11 @@ function App() {
   let navigate = useNavigate();
   // navigage(1) 앞으로 이동
   // navigage(-1) 뒤로 이동
+
+  let result = useQuery('작명', ()=>
+    axios.get('https://codingapple1.github.io/userdata.json')
+    .then((a)=>{ return a.data })
+  )
 
   useEffect(() => {
     if (!localStorage.getItem("watched")) {
@@ -47,6 +53,7 @@ function App() {
               장바구니
             </Link>
           </Nav>
+          <Nav className="ms-auto">반가워요</Nav>
         </Container>
       </Navbar>
       <div className="view-pop">
@@ -107,7 +114,7 @@ function App() {
           element={
             // 2️⃣ Context : 사용할 곳 감싸기
             <Context1.Provider value={{ test }}>
-              <Detail shoes={shoes} />
+              <Detail shoes={shoes} setWatchedItems={setWatchedItems} />
             </Context1.Provider>
           }
         />
