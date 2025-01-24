@@ -1,0 +1,40 @@
+* {
+  text-align: center;
+}
+.main-bg {
+  height: 300px;
+  background-image: url("./img/bg.png");
+  background-size: cover;
+  background-position: center;
+}
+`
+/* animation */
+.start {
+  opacity: 0;
+}
+.end {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+/* 최근본상품 */
+.view-pop {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  min-height: 100px;
+  max-height: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+}
+.scroll-area {
+  height: 100%;
+  overflow: auto;
+}
